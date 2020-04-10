@@ -20,7 +20,7 @@ deploy:
   access_key_id: AKIAIZ5RNLVLGEATUZ7Q
   secret_access_key: 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
   bucket: test-priyam-cicd-bucket
-  deploy.skip_cleanup: true
+  skip_cleanup: true
 
 after_deploy:
   - ./after_deploy.sh
