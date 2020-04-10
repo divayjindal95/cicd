@@ -11,3 +11,15 @@ before_install:
 # # command to run tests
 script:
   - python -m  pytest ./src/tests_square.py
+
+
+before_deploy: "echo 'ready?'"
+
+deploy:
+  provider: s3
+  access_key_id: AKIAIZ5RNLVLGEATUZ7Q
+  secret_access_key: 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
+  bucket: test-priyam-cicd-bucket
+
+after_deploy:
+  - ./after_deploy.sh
