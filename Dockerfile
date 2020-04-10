@@ -12,7 +12,7 @@ WORKDIR /src
 ADD ./requirements.txt /src
 ADD ./src/* /src/
 
-RUN pip install --upgrade pip' command
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "python" ]
