@@ -10,7 +10,9 @@ RUN apt-get update -y && \
 WORKDIR /src
 
 ADD ./requirements.txt /src
+ADD ./src/* /src/
 
+RUN pip install --upgrade pip' command
 RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "python" ]
