@@ -6,7 +6,7 @@ jobs:
 
   hello:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
     - name: Hello, World in GitHub Actions
