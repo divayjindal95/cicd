@@ -1,17 +1,13 @@
-name: Upload Website
-on:
-  push:
-    branches:
-    - master
+name: Hello GitHub Actions
+
+on: [push]
+
 jobs:
-  deploy:
+
+  hello:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --exclude '.git/*'
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Hello, World in GitHub Actions
+      run: echo 'Hello, World'
