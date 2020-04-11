@@ -8,14 +8,11 @@ jobs:
     name: testing
     runs-on: ubuntu-16.04
     steps:
-      - id: step 1
       - uses: actions/checkout@v2
       - name: Run shell commands
-        id: step11
         run: |
             pwd
             ls /home
       - name: Hello, World in GitHub Actions
-        id: step12
         run: echo 'Hello, World'
         
