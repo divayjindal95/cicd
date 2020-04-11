@@ -1,22 +1,24 @@
-name: Upload Website
+name: Deploy to ec2
 
 on:
   push:
     branches:
-    - master
+      -master
 
 jobs:
-  - name: Deploy to server
-    id: deploy
-    uses: Pendect/action-rsyncer@v1.1.0
-    env:
-      DEPLOY_KEY: ${{secrets.ec2_pub}}
-    with:
-      flags: '-avzr --delete'
-      options: '--exclude venv'
-      ssh_options: ''
-      src: './'
-      dest: 'ec2-user@3.92.48.181:/home/ec2-user'
+  rsync_deploy:
+    runs-on: ubuntu-latest
 
-  - name: Display status from deploy
-    run: echo "${{ steps.deploy.outputs.status }}"
+    steps:
+      - name: config and run
+      uses: Pendect/action-rsyncer@v1.1.0
+      env:
+        DEPLOY_KEY: ${{secrets.ec2_pub}}
+      with:
+        flags: '-avzr --delete'
+        options: '--exclude venv'
+        ssh_options: ''
+        src: './'
+        dest: 'ec2-user@3.92.48.181:/home/ec2-user'
+      - name: Display status from deploy
+        run: echo "${{ steps.deploy.outputs.status }}"
