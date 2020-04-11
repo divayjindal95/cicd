@@ -5,16 +5,15 @@ on:
     - master
 jobs:
   build:
+    name: testing
     runs-on: ubuntu-16.04
     strategy:
       matrix:
         node: [ '10', '8' ]
-    name: Node ${{ matrix.node }} sample
     steps:
       - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm install
-      - run: npm test
+      - name: Run shell commands
+      - run: pvd
+      - run: ls /home
+      - name: Hello, World in GitHub Actions
+      - run: echo 'Hello, World'
