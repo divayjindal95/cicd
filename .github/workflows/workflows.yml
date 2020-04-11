@@ -13,7 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run shell commands
-      - run: pvd
-      - run: ls /home
+        run: |
+            pvd
+            ls /home
       - name: Hello, World in GitHub Actions
-      - run: echo 'Hello, World'
+        run: echo 'Hello, World'
