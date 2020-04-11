@@ -10,17 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: config and run
-        uses: Pendect/action-rsyncer@v1.1.0
-        env:
-          DEPLOY_KEY: ${{secrets.ec2_pub}}
-        with:
-          ssh_options: ''
-          src: './'
-          dest: 'ec2-user@3.92.48.181:/home/ec2-user'
+      # - name: config and run
+      #   uses: Pendect/action-rsyncer@v1.1.0
+      #   env:
+      #     DEPLOY_KEY: ${{secrets.ec2_pub}}
+      #   with:
+      #     ssh_options: ''
+      #     src: './'
+      #     dest: 'ec2-user@3.92.48.181:/home/ec2-user'
       - name: Display status from deploy
         run: echo ${{ steps.deploy.outputs.status }}
       - name: get some info
         run: pwd & ls /home
+      - name: scp into machine
+        run: scp -r -i ${{secrets.ec2_pub}}  /home ec2-user@3.92.48.181:/home/ec2-user
 
 
