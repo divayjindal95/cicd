@@ -12,6 +12,8 @@ jobs:
       - name: get some info
         run: pwd & ls /home
       - name: scp into machine
-        run: scp -r -i ${{secrets.ec2_pub}}  /home ec2-user@3.92.48.181:/home/ec2-user
+        env:
+          Deploy: ${{secrets.ec2_pub}}
+        run: scp -r -i $Deploy  /home ec2-user@3.92.48.181:/home/ec2-user
 
 
