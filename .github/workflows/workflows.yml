@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run shell commands
-        env:
-          DEPLOY:${{ secrets.ec2_pub }}
+#         env:
+#           DEPLOY:${{ secrets.ec2_pub }}
         run: |
             pwd
             ls /home
