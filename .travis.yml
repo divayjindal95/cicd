@@ -17,10 +17,12 @@ before_deploy: "echo 'ready?'"
 
 deploy:
   provider: s3
-  access_key_id: AKIAIZ5RNLVLGEATUZ7Q
-  secret_access_key: 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
+  access_key_id: ${{ secrets.aws_access_key_id }}
+  secret_access_key: ${{ secrets.aws_secret_access_key }}
   bucket: test-priyam-cicd-bucket
   skip_cleanup: true
 
-after_deploy:
-  - ./after_deploy.sh
+# after_deploy:
+#   - ./after_deploy.sh
+
+
