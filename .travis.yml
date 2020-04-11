@@ -22,7 +22,7 @@ deploy:
   bucket: test-priyam-cicd-bucket
   skip_cleanup: true
   acl: public_read
-  region: "us-east-1"
+  region: us-east-1
 
 # after_deploy:
 #   - ./after_deploy.sh
