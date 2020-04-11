@@ -5,7 +5,10 @@ on:
     - master
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-18.04]
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
