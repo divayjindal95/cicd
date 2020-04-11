@@ -8,12 +8,15 @@ jobs:
     name: testing
     runs-on: ubuntu-16.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Run shell commands
+      - uses: actions/checkout@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         env:
-          TEST_DEPLOY_KEY:${{ secrets.ec2_pub }}
-        run: |
-            pwd
-            ls /home
+          HOST: 3.92.48.181
+          USERNAME: ec2-user
+          KEY: ${{ secrets.ec2_pub }}
+        with:
+          source: ./
+          target: /home/ec2-user
       - name: Hello, World in GitHub Actions
         run: echo 'Hello, World'
