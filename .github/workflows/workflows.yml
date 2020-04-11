@@ -10,11 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run shell commands
-#         env:
-#           DEPLOY:${{ secrets.ec2_pub }}
+        env:
+          TEST_DEPLOY_KEY:${{ secrets.ec2_pub }}
         run: |
             pwd
             ls /home
       - name: Hello, World in GitHub Actions
         run: echo 'Hello, World'
-        
