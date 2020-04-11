@@ -15,7 +15,6 @@ jobs:
         run: |
             pwd
             ls /home
-            scp -r -i  $DEPLOY ./ ec2-user@3.92.48.181:/home/ec2-user
       - name: Hello, World in GitHub Actions
         run: echo 'Hello, World'
         
