@@ -15,10 +15,9 @@ jobs:
         env:
           DEPLOY_KEY: ${{secrets.ec2_pub}}
         with:
-          flags: '-avzr --delete'
-          options: '--exclude venv'
           ssh_options: ''
           src: './'
           dest: 'ec2-user@3.92.48.181:/home/ec2-user'
       - name: Display status from deploy
-        run: echo "${{ steps.deploy.outputs.status }}"
+        run: echo ${{ steps.deploy.outputs.status }}
+
